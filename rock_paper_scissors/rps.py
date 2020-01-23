@@ -2,18 +2,21 @@
 
 import sys
 
-def rock_paper_scissors(n):
+def add_plays(arr):
     other_array = []
     my_array = [['rock'], ['paper'], ['scissors']]
-    if len(other_array) == 3 ** n:
-      return other_array
-    else: 
-        for i in my_array:
-            other_array.append(i)
-            print(other_array)
-            return rock_paper_scissors(n-1)    
-   
-    return other_array
+    for i in arr: 
+        for j in my_array:
+            other_array.append(i+j)
+    return other_array 
+
+def rock_paper_scissors(n):
+    if n == 0: 
+        return [[]]
+    elif n == 1: 
+        return [['rock'], ['paper'], ['scissors']]   
+    return add_plays(rock_paper_scissors(n-1))     
+
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
@@ -23,18 +26,17 @@ if __name__ == "__main__":
     print('Usage: rps.py [num_plays]')
 
 
-other_array = []
-my_array = [['rock'], ['paper'], ['scissors']]
+#other_array = []
+#my_array = [['rock'], ['paper'], ['scissors']]
 
-for i in my_array:
-    for i in my_array:
-        for i in my_array:
-            other_array.append(i+i+i)
+#for i in my_array:
+    #for j in my_array:
+        #for k in my_array:
+            #other_array.append(i+j+k)
     
-print(len(other_array))    
+#print(other_array)
 
 
-#rock_paper_scissors(3)
+#print(rock_paper_scissors(2))
 
 
- 
