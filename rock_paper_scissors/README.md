@@ -22,3 +22,38 @@ You can also test your implementation manually by executing `python rps.py [n]`.
  * Another problem that asks you to generate a bunch of permutations, so we're probably going to want to opt for using recursion again. Since we're building up a list of results, we'll have to pass the list we're constructing around to multiple recursive calls so that each recursive call can add to the overall result. However, the tests only give our function `n` as input. To get around this, we could define an inner recursive helper function that will perform the recursion for us, while allowing us to preserve the outer function's function signature. 
  * In Python, you can concatenate two lists with the `+` operator. However, you'll want to make sure that both operands are lists!
  * If you opt to define an inner recursive helper function, don't forget to make an initial call to the recursive helper function to kick off the recursion.
+
+ other_array = []
+    my_array = [['rock'], ['paper'], ['scissors']]
+    if n == 0: 
+        return [other_array]
+    elif n == 1:     
+        for i in my_array:
+            other_array.append(i)
+        return other_array
+    elif n == 2:     
+        for i in my_array:
+            for j in my_array:
+                other_array.append(i+j)
+        return other_array
+    elif n == 3:  
+        for i in my_array:   
+            for j in my_array:
+                for k in my_array:
+                    other_array.append(i+j+k)  
+        return other_array          
+    elif n == 4:
+        for i in my_array:  
+            for j in my_array:   
+                for k in my_array:
+                    for h in my_array:
+                        other_array.append(i+j+k+h)      
+        return other_array  
+    elif n == 5:
+        for i in my_array:  
+            for j in my_array:   
+                for k in my_array:
+                    for h in my_array:
+                        for l in my_array:  
+                            other_array.append(i+j+k+h+l)      
+        return other_array  

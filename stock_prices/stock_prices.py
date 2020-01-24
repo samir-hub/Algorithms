@@ -3,7 +3,14 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  profit_array = []
+  rev_prices = prices[::-1]
+  for i in range(len(prices)):
+      for j in range(len(prices)):   
+          if i < j:            
+              profit_array.append(rev_prices[i]-rev_prices[j])
+
+  return max(profit_array)
 
 
 if __name__ == '__main__':
@@ -13,3 +20,6 @@ if __name__ == '__main__':
   args = parser.parse_args()
 
   print("A profit of ${profit} can be made from the stock prices {prices}.".format(profit=find_max_profit(args.integers), prices=args.integers))
+  
+
+
